@@ -20,7 +20,7 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('World War II simulator') 
 
 image = pygame.image.load(r'')#insert file path and image name
-  
+def Run_Game():
 # conditional loop
 while war==True : 
   
