@@ -37,14 +37,14 @@ while war==True :
     for event in pygame.event.get() : 
   
         # if event object type is QUIT 
-        # then quitting the pygame 
+        # then quitting the pyame 
         # and program both. 
         if event.type == pygame.QUIT : 
   
             # deactivates the pygame library 
             pygame.quit() 
   
-            # quit the program. 
+            # quit the program. /
             quit() 
   
         # Draws the surface object to the screen.   
