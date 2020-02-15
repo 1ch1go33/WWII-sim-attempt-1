@@ -7,7 +7,7 @@ pygame.init()
 #assign several in game variables
 white = (255, 255, 255) 
 black= (0,0,0)
-width = 400  #change these two to fit game
+wi = 400  #change these two to fit game
 height = 400
 war==True
 allies=[]
