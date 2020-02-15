@@ -4,30 +4,27 @@ import pygame
 # initiate pygame and give permission 
 # to use pygame's functionality. 
 pygame.init() 
-  
-# define the RGB value 
-# for white colour 
+#assign several in game variables
 white = (255, 255, 255) 
-  
-# assigning values to X and Y variable 
-X = 400
-Y = 400
-  
-# create the display surface object 
-# of specific dimension..e(X, Y). 
-display_surface = pygame.display.set_mode((X, Y )) 
+black= (0,0,0)
+width = 400  #change these two to fit game
+height = 400
+war==True
+allies=[]
+enemies=[]
+neutral=[]
+#initiate the pygame window
+screen = pygame.display.set_mode((width, height)) 
   
 # set the pygame window name 
-pygame.display.set_caption('Image') 
+pygame.display.set_caption('World War II simulator') 
+
+image = pygame.image.load(r'')#insert file path and image name
   
-# create a surface object, image is drawn on it. 
-image = pygame.image.load(r'C:\Users\user\Pictures\geek.jpg') 
-  
-# infinite loop 
-while True : 
+# conditional loop
+while war==True : 
   
     # completely fill the surface object 
-    # with white colour 
     display_surface.fill(white) 
   
     # copying the image surface object 
