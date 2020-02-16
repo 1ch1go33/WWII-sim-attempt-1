@@ -7,15 +7,15 @@ pygame.init()
 #assign several in game variables
 white = (255, 255, 255)
 black= (0,0,0)
-width = 400  #change these two to fit game
-height = 400
-war=True
+width = 1000  #change these two to fit game
+height = 600
+war=False
 allies=[]
 enemies=[]
 neutral=[]
-TitleScreenOne = pygame.image.load(r'')
-TitleScreenTwo = pygame.image.load(r'')
-TitleScreenThree = pygame.image.load(r'')
+TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
+TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
+#TitleScreenFDR = pygame.image.load(r'')
 #initiate the pygame window
 Screen = pygame.display.set_mode((width, height))
 
@@ -30,12 +30,13 @@ SpriteList=[image]
 def StartGame():
     while war==False:
         #cycles through the different title screens
-        Screen.blit(TitleScreenOne, (0,0))
+        print('check')
+        Screen.blit(TitleScreenStalin, (0,0))
         time.sleep(5)
-        Screen.blit(TitleScreenTwo, (0,0))
+        Screen.blit(TitleScreenHitler, (0,0))
         time.sleep(5)
-        Screen.blit(TitleScreenThree, (0,0))
-        time.sleep(5)
+       # Screen.blit(TitleScreenThree, (0,0))
+        #time.sleep(5)
 
 def RunGame():
 # conditional loop
@@ -66,4 +67,4 @@ def RunGame():
 
         # Draws the surface object to the screen.
         pygame.display.update()
-RunGame()
+StartGame()
