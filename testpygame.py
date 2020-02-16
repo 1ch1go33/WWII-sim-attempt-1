@@ -13,6 +13,9 @@ war=False
 allies=[]
 enemies=[]
 neutral=[]
+TitleStalin = False
+TitleHitler = False
+TitleFDR = False
 TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
 TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
 #TitleScreenFDR = pygame.image.load(r'')
@@ -27,14 +30,30 @@ SpriteList=[image]
 #def LoadSprites():
     #for sprite in SpriteList:
       #  Screen.blit(sprite, (0,0))
+
+def TitleCycleStalin():
+    while Stalin==True:
+        screen.blit(TitleScreenStalin, (0,0))
+
+def TitleCycleHitler():
+    while Hitler==False:
+        screen.blit(TitleScreenStalin, (0,0))
+
 def StartGame():
+    global Stalin
+    global Hitler
     while war==False:
         #cycles through the different title screens
         print('check')
-        Screen.blit(TitleScreenStalin, (0,0))
+        Stalin = True
+        Hitler = False
+        TitleCycleStalin()
         time.sleep(5)
-        Screen.blit(TitleScreenHitler, (0,0))
+        Stalin = False
+        Hitler = True
+        TitleCycleHitler()
         time.sleep(5)
+        
        # Screen.blit(TitleScreenThree, (0,0))
         #time.sleep(5)
 
