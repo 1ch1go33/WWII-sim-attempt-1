@@ -38,6 +38,16 @@ def DrawSprites():
         Screen.blit(sprite, (0, 0))
         pygame.display.update()
         
+def Events():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+        elif event.type == pygame.MOUSEBUTTONUP:
+            hx=6
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            hx=6
+        elif event.type == pygame.MOUSEMOTION:
+            hx=6
 def StartGame():
     global TitleScreenHitler
     global TitleScreenStalin
