@@ -16,6 +16,7 @@ TimeDelay = 0
 WallpaperCycle = 0
 LoadGameB = pygame.image.load(r'images\LoadGame.png')
 StartGameB = pygame.image.load(r'images\StartGame.png')
+TitleScreen = pygame.image.load(r'images\WorldWarIITitleScreen.png')
 TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
 TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
 #TitleScreenFDR = pygame.image.load(r'')
@@ -25,20 +26,27 @@ Screen = pygame.display.set_mode((width, height))
 # set the pygame window name
 pygame.display.set_caption('World War II simulator')
 
-image = pygame.image.load(r'images\BlackSquare.png')#insert file path and image name
-SpriteList=[image, StartGameB, LoadGameB]
+
+SpriteList={StartGameB:(150, 420), LoadGameB:(600, 420), TitleScreen:(280, 100)}
 Background=TitleScreenStalin
 #def LoadSprites():
     #for sprite in SpriteList:
       #  Screen.blit(sprite, (0,0))
 
 def DrawSprites():
+    LoadAndStart = True
     global Background
     global SpriteList
-    for sprite in SpriteList:
-        Screen.blit(Background, (0,0))
-        Screen.blit(sprite, (0, 0))
-        pygame.display.update()
+    #Screen.blit(Background, (0,0))
+    #for sprite in SpriteList:
+     #   Screen.blit(sprite, SpriteList.get(sprite))
+      #  pygame.display.update()
+    pygame.event.pump()
+    Screen.blit(Background, (0,0))
+    Screen.blit(LoadGameB, SpriteList.get(LoadGameB))
+    Screen.blit(StartGameB, SpriteList.get(StartGameB))
+    Screen.blit(TitleScreen, SpriteList.get(TitleScreen))
+    pygame.display.update()
         
 def Events():
     for event in pygame.event.get():
@@ -52,7 +60,6 @@ def Events():
             hx=6
 def Tick():
     global TimeDelay
-    pygame.event.pump()
     TimeDelay += 1
     if TimeDelay >= 5000:
         TimeDelay=0
@@ -96,7 +103,7 @@ def RunGame():
     # copying the image surface object
     # to the display surface object at
     # (0, 0) coordinate.
-        Screen.blit(image, (0, 0))
+        
 
     # iterate over the list of Event objects
     # that was returned by pygame.event.get() method.
