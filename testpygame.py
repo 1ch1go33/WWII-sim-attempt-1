@@ -1,10 +1,7 @@
 import pygame
 import time
-# activate the pygame library .
-# initiate pygame and give permission
-# to use pygame's functionality.
 pygame.init()
-#assign several in game variables
+
 white = (255, 255, 255)
 black= (0,0,0)
 width = 1000  #change these two to fit game
@@ -13,6 +10,8 @@ war=False
 allies=[]
 enemies=[]
 neutral=[]
+TimeDelay = 0
+WallpaperCycle = 0
 TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
 TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
 #TitleScreenFDR = pygame.image.load(r'')
@@ -32,7 +31,6 @@ Background=TitleScreenStalin
 def DrawSprites():
     global Background
     global SpriteList
-    print('yes')
     for sprite in SpriteList:
         Screen.blit(Background, (0,0))
         Screen.blit(sprite, (0, 0))
@@ -48,19 +46,36 @@ def Events():
             hx=6
         elif event.type == pygame.MOUSEMOTION:
             hx=6
+def Tick():
+    global TimeDelay
+    pygame.event.pump()
+    TimeDelay += 1
+    if TimeDelay >= 5000:
+        TimeDelay=0
+    return TimeDelay
 def StartGame():
     global TitleScreenHitler
     global TitleScreenStalin
     global Background
+    global WallpaperCycle
     while war==False:
+        pygame.time.delay(1)
+        if Tick()==0:
+            if WallpaperCycle < 3:
+                WallpaperCycle += 1 
+            else:
+                WallpaperCycle = 1
+            if WallpaperCycle == 1:
+                Background = TitleScreenHitler
+            elif WallpaperCycle == 2:
+                Background = TitleScreenStalin
         #cycles through the different title screens
-        print('check')
         DrawSprites()
-        time.sleep(5)
-        Background=TitleScreenHitler
-        DrawSprites()
-        time.sleep(5)
-        Background=TitleScreenStalin
+       # time.sleep(5)
+        #Background=TitleScreenHitler
+        #DrawSprites()
+        #time.sleep(5)
+        Events()
         
        # Screen.blit(TitleScreenThree, (0,0))
         #time.sleep(5)
@@ -94,4 +109,7 @@ def RunGame():
 
         # Draws the surface object to the screen.
         pygame.display.update()
+
 StartGame()
+
+
