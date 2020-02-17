@@ -12,6 +12,8 @@ enemies=[]
 neutral=[]
 TimeDelay = 0
 WallpaperCycle = 0
+LoadGameB = pygame.image.load(r'LoadGame.png')
+StartGameB = pygame.image.load(r'StartGame.png')
 TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
 TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
 #TitleScreenFDR = pygame.image.load(r'')
@@ -22,7 +24,7 @@ Screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('World War II simulator')
 
 image = pygame.image.load(r'images\BlackSquare.png')#insert file path and image name
-SpriteList=[image]
+SpriteList=[image, StartGameB, LoadGameB]
 Background=TitleScreenStalin
 #def LoadSprites():
     #for sprite in SpriteList:
@@ -56,6 +58,8 @@ def Tick():
 def StartGame():
     global TitleScreenHitler
     global TitleScreenStalin
+    global LoadGameB
+    global StartGameB
     global Background
     global WallpaperCycle
     while war==False:
