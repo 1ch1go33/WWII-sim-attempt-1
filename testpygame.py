@@ -1,5 +1,7 @@
 import pygame
 import time
+import math
+import os
 pygame.init()
 
 white = (255, 255, 255)
@@ -12,8 +14,8 @@ enemies=[]
 neutral=[]
 TimeDelay = 0
 WallpaperCycle = 0
-LoadGameB = pygame.image.load(r'LoadGame.png')
-StartGameB = pygame.image.load(r'StartGame.png')
+LoadGameB = pygame.image.load(r'images\LoadGame.png')
+StartGameB = pygame.image.load(r'images\StartGame.png')
 TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
 TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
 #TitleScreenFDR = pygame.image.load(r'')
