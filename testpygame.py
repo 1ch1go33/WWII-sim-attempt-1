@@ -19,6 +19,7 @@ StartGameB = pygame.image.load(r'images\StartGame.png')
 TitleScreen = pygame.image.load(r'images\WorldWarIITitleScreen.png')
 TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
 TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
+LoadGameR= LoadGameB.get_rect(topleft=(600, 420))
 #TitleScreenFDR = pygame.image.load(r'')
 #initiate the pygame window
 Screen = pygame.display.set_mode((width, height))
@@ -32,15 +33,26 @@ Background=TitleScreenStalin
 #def LoadSprites():
     #for sprite in SpriteList:
       #  Screen.blit(sprite, (0,0))
+def MousePos(coord):
+    for event in pygame.event.get():
+        if event.type == MOUSEBUTTONDOWN:
+            if coord == 'x':
+                ret = pygame.mouse.get_pos()[0]
+                return ret
+            elif coord =='y':
+                ret = pygame.mouse.get_pos()[1]
+                return ret
+
+def GetClicked(rectangle):
+    x = MousePos('x')
+    y = MousePos('y')
+    if x > rectangle[0] and x< (rectangle[0]+rectangle[2]):
+        #finish this part
 
 def DrawSprites():
     LoadAndStart = True
     global Background
     global SpriteList
-    #Screen.blit(Background, (0,0))
-    #for sprite in SpriteList:
-     #   Screen.blit(sprite, SpriteList.get(sprite))
-      #  pygame.display.update()
     pygame.event.pump()
     Screen.blit(Background, (0,0))
     Screen.blit(LoadGameB, SpriteList.get(LoadGameB))
