@@ -13,14 +13,18 @@ war=False
 allies=[]
 enemies=[]
 neutral=[]
-Objects = array('i', [1, 2, 3,])
+#Objects = array('i', [1, 2, 3,]) this needs further testing
+Objects = []#inside of each object, have an x, y, width, and height
+#example = Objects = [[600, 420, 300, 100], [150, 420, 300, 100]]
+#use for loop to find out where mouse is and where clickable box is
 TimeDelay = 0
 WallpaperCycle = 0
-LoadGameB = pygame.image.load(r'images\LoadGame.png')
-StartGameB = pygame.image.load(r'images\StartGame.png')
-TitleScreen = pygame.image.load(r'images\WorldWarIITitleScreen.png')
-TitleScreenStalin = pygame.image.load(r'images\wwII_3.png')
-TitleScreenHitler = pygame.image.load(r'images\wwII_1.png')
+#whenever you load an image, put a comment of the dimensions right next to it
+LoadGameB = pygame.image.load(r'images\LoadGame.png') #(300, 100)
+StartGameB = pygame.image.load(r'images\StartGame.png') #(300, 100)
+TitleScreen = pygame.image.load(r'images\WorldWarIITitleScreen.png') #(600, 1000)
+TitleScreenStalin = pygame.image.load(r'images\wwII_3.png') #(600, 1000)
+TitleScreenHitler = pygame.image.load(r'images\wwII_1.png') #(600, 1000)
 LoadGameR= LoadGameB.get_rect(topleft=(600, 420))
 #TitleScreenFDR = pygame.image.load(r'')
 #initiate the pygame window
@@ -37,12 +41,15 @@ Background=TitleScreenStalin
       #  Screen.blit(sprite, (0,0))
 
 def StartGame():
+    global Objects
     global TitleScreenHitler
     global TitleScreenStalin
     global LoadGameB
     global StartGameB
     global Background
     global WallpaperCycle
+    Objects.append([150, 420, 300, 100])
+    Objects.append([600, 420, 300, 100])
     while war==False:
         pygame.time.delay(1)
         if Tick()==0:
@@ -60,10 +67,6 @@ def StartGame():
                     print("no")
         #cycles through the different title screens
         DrawSprites()
-       # time.sleep(5)
-        #Background=TitleScreenHitler
-        #DrawSprites()
-        #time.sleep(5)
         Events()
         
        # Screen.blit(TitleScreenThree, (0,0))
@@ -103,6 +106,10 @@ def Tick():
     if TimeDelay >= 1000:
         TimeDelay=0
     return TimeDelay
+
+def RectangleHitBox(x, y, w, h):
+    
+    return [x, y, w, h]
 
 StartGame()
 
