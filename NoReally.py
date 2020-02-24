@@ -30,10 +30,9 @@ pygame.display.set_caption('World War II simulator')
 Background=TitleScreens[0]
 
 class Wallpaper:
-
+    #time between each cycle
     BackgroundCycle = 5
     Showing = True
-    #time between each cycle
 
     def __init__(self, x, y, img):
         self.x = x
