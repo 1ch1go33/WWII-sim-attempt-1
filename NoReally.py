@@ -67,3 +67,6 @@ class WorldMap:
 
     def get_mask(self):
         return pygame.mask.from_surface(self.img)
+
+def Draw():
+    pass
