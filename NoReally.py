@@ -13,6 +13,7 @@ war=False
 allies=[]
 enemies=[]
 neutral=[]
+Classes = []
 #whenever you load an image, put a comment of the dimensions right next to it
 LoadGameB = [pygame.image.load(r'images\LoadGame.png')] #(300, 100)
 StartGameB = [pygame.image.load(r'images\StartGame.png')] #(300, 100)
@@ -32,41 +33,60 @@ Background=TitleScreens[0]
 class Wallpaper:
     #time between each cycle
     BackgroundCycle = 5
-    Showing = True
 
-    def __init__(self, x, y, img):
+    def __init__(self, x, y, img, showing):
         self.x = x
         self.y = y
         self.img = img[0]
+        self.showing = True
+        Classes.append(self)
 
     def get_mask(self):
         return pygame.mask.from_surface(self.img)
 
 class Actions:
 
-    Showing = False
-
-    def __init__(self, x, y, w, h, img):
+    def __init__(self, x, y, width, height, img, showing):
         self.x = x
         self.y = y
-        self.w = w
-        self.h = h
+        self.width = width
+        self.height = height
         self.img = img[0]
+        self.showing = False
+        Classes.append(self)
 
     def get_mask(self):
         return pygame.mask.from_surface(self.img)
 
 class WorldMap:
 
-    Showing = False
 
-    def __init__(self, x, y, img):
+    def __init__(self, x, y, img, showing):
         self.x = x
         self.y = y
         self.img = img[0]
+        self.showing = False
+        Classes.append(self)
 
     def get_mask(self):
         return pygame.mask.from_surface(self.img)
 
-def Draw():
+class Country:
+
+    def __init__(self, population, money, working, armysize, landsize, food):
+        self.population = population
+        self.money = money
+        self.working = working
+        self.armysize = armysize
+        self.landsize = landsize
+        self.food = food
+
+def Draw(self):
+    for i in Classes:
+        if (Classes[i].showing):
+            pygame.event.pump()
+            Screen.blit(Classes[i], ((Classes[i].x),(Classes[i].y))
+            pygame.display.update()
+
+def Main():
     pass
