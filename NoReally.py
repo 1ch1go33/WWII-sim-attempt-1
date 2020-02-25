@@ -71,6 +71,8 @@ class WorldMap:
     def get_mask(self):
         return pygame.mask.from_surface(self.img)
 
+    def Draw(self)
+
 class Country:
 
     def __init__(self, population, money, working, armysize, landsize, food):
@@ -81,12 +83,10 @@ class Country:
         self.landsize = landsize
         self.food = food
 
-def Draw(self):
-    for i in Classes:
-        if (Classes[i].showing):
-            pygame.event.pump()
-            Screen.blit(Classes[i], ((Classes[i].x),(Classes[i].y))
-            pygame.display.update()
+
 
 def Main():
-    pass
+    Backgrounds = new Wallpaper(0, 0, TitleScreens, True)
+    StartGameButton = new Wallpaper(150, 420, StartGameB, True)
+    LoadGameButton = new Wallpaper(600, 420, LoadGameB, True)
+    TitleScreenLogo = new Wallpaper(280, 100, TitleScreen, True)
