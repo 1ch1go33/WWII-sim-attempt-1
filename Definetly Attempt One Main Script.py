@@ -15,24 +15,27 @@ White = (255,255,255)
 ################           This is where important functions go
 
 def Mouse(Coord): #     Tells you where the mouse is
+    CoordVal = 'n/a'
     if Coord == ('X'):
         CoordVal = pygame.mouse.get_pos()[0]
     if Coord == ('Y'):
         CoordVal = pygame.mouse.get_pos()[1]
     return CoordVal
+def MouseClick():
+    g=pygame.mouse.get_pressed()
+    print(g)
 
 
+def Events():                          # Handles inputs from keyboard, mouse, etc.
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit
+            sys.exit
 ###############              This part is the game loop
 def PlayGame():
-    pygame.time.wait(5)
     global Game
     Game = True
     while Game == True:
-        mouse = input('Coord?') # This is just filler code so that python doesn't return syntax error. Once we have an actual game we'll replace
-        if mouse == 'X':
-            print(Mouse(X))
-        elif mouse == 'Y':
-            print(Mouse(Y))
-        else:
-            Game = False
+        Events()
+        MouseClick()
 PlayGame()
