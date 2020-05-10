@@ -21,7 +21,8 @@ def Mouse(Coord): #     Tells you where the mouse is
     if Coord == ('Y'):
         CoordVal = pygame.mouse.get_pos()[1]
     return CoordVal
-def MouseClick():
+
+def MouseDetect():
     g=pygame.mouse.get_pressed()
     print(g)
 
@@ -31,11 +32,12 @@ def Events():                          # Handles inputs from keyboard, mouse, et
         if event.type == pygame.QUIT:
             pygame.quit
             sys.exit
+
 ###############              This part is the game loop
 def PlayGame():
     global Game
     Game = True
     while Game == True:
         Events()
-        MouseClick()
+        MouseDetect()
 PlayGame()
