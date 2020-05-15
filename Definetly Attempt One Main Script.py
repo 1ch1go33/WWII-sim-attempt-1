@@ -2,6 +2,10 @@ import pygame
 import random
 import math
 import os
+import sys
+import Functions as Fun
+import Objects as Obj
+import Images as Img
 X=0
 Y=0
 Width = 1000
@@ -14,24 +18,13 @@ White = (255,255,255)
 
 ################           This is where important functions go
 
-def Mouse(Coord): #     Tells you where the mouse is
-    CoordVal = 'n/a'
-    if Coord == ('X'):
-        CoordVal = pygame.mouse.get_pos()[0]
-    if Coord == ('Y'):
-        CoordVal = pygame.mouse.get_pos()[1]
-    return CoordVal
-
-def MouseDetect():
-    g=pygame.mouse.get_pressed()
-    print(g)
-
 
 def Events():                          # Handles inputs from keyboard, mouse, etc.
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit
             sys.exit
+            sys.just_kinda_stop # for some reason .exit isn't working, so i wrote a line that causes an error and closes the program. obviously a dumb solution but for now it works
 
 ###############              This part is the game loop
 def PlayGame():
@@ -39,5 +32,5 @@ def PlayGame():
     Game = True
     while Game == True:
         Events()
-        MouseDetect()
+        Fun.MouseDetect()
 PlayGame()
