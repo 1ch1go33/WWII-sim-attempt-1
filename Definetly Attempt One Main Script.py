@@ -8,6 +8,7 @@ import Objects as Obj
 import Images as Img
 X=0
 Y=0
+Background = Img.sUSBackground
 Width = 1000
 Height = 600
 Game = False
@@ -22,15 +23,22 @@ White = (255,255,255)
 def Events():                          # Handles inputs from keyboard, mouse, etc.
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit
-            sys.exit
-            sys.just_kinda_stop # for some reason .exit isn't working, so i wrote a line that causes an error and closes the program. obviously a dumb solution but for now it works
+            pygame.quit()
+            sys.exit()
+
 
 ###############              This part is the game loop
 def PlayGame():
+    global Screen
+    global White
+    global Black
     global Game
+    global Background
     Game = True
+
     while Game == True:
         Events()
         Fun.MouseDetect()
-PlayGame()
+        Screen.fill(Black)
+        Screen.blit(Background, (0,0))
+PlayGame() 
