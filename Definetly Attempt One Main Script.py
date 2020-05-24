@@ -16,7 +16,8 @@ Screen = pygame.display.set_mode((Width, Height))
 pygame.display.set_caption('WWII Simulator')
 Black = (0,0,0)
 White = (255,255,255)
-
+################           Big lists and variables
+SpriteList = []
 ################           This is where important functions go
 
 
