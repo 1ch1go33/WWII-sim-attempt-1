@@ -37,8 +37,10 @@ def PlayGame():
     Game = True
 
     while Game == True:
+        
         Events()
         Fun.MouseDetect()
         Screen.fill(Black)
         Screen.blit(Background, (0,0))
+
 PlayGame() 
